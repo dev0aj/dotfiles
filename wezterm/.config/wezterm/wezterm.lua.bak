@@ -1,0 +1,185 @@
+local wezterm = require 'wezterm'
+local config = {}
+
+wezterm.on("gui-startup", function(cmd)
+  local mux = wezterm.mux
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
+wezterm.on("update-right-status", function(window, pane)
+  local workspace = wezterm.mux.get_active_workspace()
+
+  window:set_right_status(
+    wezterm.format({
+      -- Left padding
+      { Text = "   " },
+
+      -- Background block
+      { Foreground = { Color = "#7aa2f7" } },
+      { Attribute = { Intensity = "Bold" } },
+
+      -- Content padding
+      { Text = " 󱂬  " .. workspace .. "  " },
+    })
+  )
+end)
+
+config.automatically_reload_config = true
+
+config.font = wezterm.font 'CodeNewRoman Nerd Font'
+
+config.color_scheme = 'tokyonight_moon'
+
+config.adjust_window_size_when_changing_font_size = true
+
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.use_fancy_tab_bar = true
+
+config.leader = {
+  key = 'Space',
+  mods = 'CTRL',
+  timeout_milliseconds = 2000,
+}
+
+config.keys = {
+
+  -- Split horizontally (like tmux %)
+  {
+    key = '%',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+
+  -- Split vertically (like tmux ")
+  {
+    key = '"',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+  },
+
+  -- Close pane (like tmux x)
+  {
+    key = 'x',
+    mods = 'LEADER',
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+
+  -- Pane navigation (like tmux hjkl)
+  {
+    key = 'h',
+    mods = 'LEADER',
+    action = wezterm.action.ActivatePaneDirection 'Left',
+  },
+  {
+    key = 'j',
+    mods = 'LEADER',
+    action = wezterm.action.ActivatePaneDirection 'Down',
+  },
+  {
+    key = 'k',
+    mods = 'LEADER',
+    action = wezterm.action.ActivatePaneDirection 'Up',
+  },
+  {
+    key = 'l',
+    mods = 'LEADER',
+    action = wezterm.action.ActivatePaneDirection 'Right',
+  },
+
+  -- Resize panes (like tmux Ctrl + hjkl)
+  {
+    key = 'h',
+    mods = 'LEADER|CTRL',
+    action = wezterm.action.AdjustPaneSize { 'Left', 5 },
+  },
+  {
+    key = 'j',
+    mods = 'LEADER|CTRL',
+    action = wezterm.action.AdjustPaneSize { 'Down', 5 },
+  },
+  {
+    key = 'k',
+    mods = 'LEADER|CTRL',
+    action = wezterm.action.AdjustPaneSize { 'Up', 5 },
+  },
+  {
+    key = 'l',
+    mods = 'LEADER|CTRL',
+    action = wezterm.action.AdjustPaneSize { 'Right', 5 },
+  },
+
+  -- New tab (like tmux c)
+  {
+    key = 'c',
+    mods = 'LEADER',
+    action = wezterm.action.SpawnTab 'CurrentPaneDomain',
+  },
+
+  -- Next/Prev tab
+  {
+    key = 'n',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateTabRelative(1),
+  },
+  {
+    key = 'p',
+    mods = 'LEADER',
+    action = wezterm.action.ActivateTabRelative(-1),
+  },
+
+
+  -- Rename workspace
+  {
+    key = 'R',
+    mods = 'LEADER',
+    action = wezterm.action.PromptInputLine {
+      description = 'Rename Workspace',
+      action = wezterm.action_callback(function(window, pane, line)
+        if line and #line > 0 then
+          local old_name = wezterm.mux.get_active_workspace()
+          wezterm.mux.rename_workspace(old_name, line)
+          window:toast_notification("Workspace Renamed", "Renamed to: " .. line, nil, 4000)
+        end
+      end),
+    },
+  },
+
+  -- Rename tab
+  {
+    key = ',',
+    mods = 'LEADER',
+    action = wezterm.action.PromptInputLine {
+      description = 'Rename Tab',
+      action = wezterm.action_callback(function(window, pane, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    },
+  },
+{
+  key = 'q',
+  mods = 'LEADER',
+  action = wezterm.action.PaneSelect,
+},
+{
+  key = "s",
+  mods = "LEADER",
+  action = wezterm.action.ShowLauncherArgs{
+    flags = "WORKSPACES",
+  },
+},
+}
+
+-- Switch tabs like tmux (Leader + 1–9)
+for i = 1, 9 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = 'LEADER',
+    action = wezterm.action.ActivateTab(i - 1),
+  })
+end
+
+return config
