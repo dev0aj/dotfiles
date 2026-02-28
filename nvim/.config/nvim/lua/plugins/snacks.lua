@@ -16,7 +16,7 @@ return {
       animate = { enabled = false },
     },
     input = { enabled = true },
-    picker = { 
+    picker = {
       enabled = true,
       sources = {
         explorer = {
