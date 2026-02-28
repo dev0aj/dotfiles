@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
 local config = {}
 
+config.term = "xterm-256color"
+
 wezterm.on("gui-startup", function(cmd)
   local mux = wezterm.mux
   local tab, pane, window = mux.spawn_window(cmd or {})
