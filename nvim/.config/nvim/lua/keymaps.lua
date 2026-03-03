@@ -47,32 +47,9 @@ vim.keymap.set("n", "<leader>9", [["9]])
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- -- quickfix list movement
--- local function quickFixToggle()
---     local qf_exists = false
---     for _, win in pairs(vim.fn.getwininfo()) do
---         if win["quickfix"] == 1 then
---             qf_exists = true
---         end
---     end
---     if qf_exists == true then
---         vim.cmd("cclose")
---         return
---     end
---     if not vim.tbl_isempty(vim.fn.getqflist()) then
---         vim.cmd("copen")
---     end
--- end
--- 
--- vim.keymap.set("n", "<leader>qo", quickFixToggle)
--- vim.keymap.set("n", "]q", "<cmd>cnext<cr>")
--- vim.keymap.set("n", "[q", "<cmd>cprev<cr>")
-
 -- -- Diagnostic keymaps
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
--- vim.keymap.set("n", "<leader>dg", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
--- vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>dg", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- function _G.set_terminal_keymaps()
 --     local opts = { buffer = 0 }
@@ -96,3 +73,17 @@ vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
 vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+
+-- lsp (overwritten by snacks)
+vim.keymap.set({ "n" }, "gd", vim.lsp.buf.definition)
+vim.keymap.set({ "n" }, "gD", vim.lsp.buf.declaration)
+vim.keymap.set({ "n" }, "gt", vim.lsp.buf.type_definition)
+vim.keymap.set({ "n" }, "gi", vim.lsp.buf.implementation)
+vim.keymap.set({ "n" }, "gr", vim.lsp.buf.references)
+vim.keymap.set({ "n" }, "K", vim.lsp.buf.hover)
+vim.keymap.set({ "n" }, "<leader>cr", vim.lsp.buf.rename)
+vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set({ "n" }, "<C-k>", vim.lsp.buf.signature_help)
+vim.keymap.set({ "n" }, "<leader>i", function()
+	vim.lsp.buf.format({ async = true })
+end)

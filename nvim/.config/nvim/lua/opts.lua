@@ -10,6 +10,11 @@ vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- toggle b/w relative and absolute line numbers
+vim.keymap.set("n", "<leader>ll", function()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end, { desc = "Toggle relative number" })
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
@@ -56,11 +61,9 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Preview substitutions live, as you type!
--- vim.o.inccommand = 'split'
-
 -- Show which line your cursor is on
--- vim.o.cursorline = true
+vim.o.cursorline = true
+vim.opt.colorcolumn = "120"
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
@@ -70,3 +73,18 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- rounded border for flaoting windows
+vim.opt.winborder = "rounded"
+
+-- hide mode
+vim.opt.showmode = false
+
+-- [[ Whitespace ]]
+vim.opt.expandtab = true -- bool: Use spaces instead of tabs
+vim.opt.shiftwidth = 4 -- num:  Size of an indent
+vim.opt.softtabstop = 4 -- num:  Number of spaces tabs count for in insert mode
+vim.opt.tabstop = 4 -- num:  Number of spaces tabs count for
+vim.opt.wrap = true -- Disable line wrap
+
+-- session
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
