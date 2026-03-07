@@ -141,8 +141,11 @@ return {
 		end)
 		map("n", "<leader>dt", dap.toggle_breakpoint)
 		map("n", "<leader>dn", dap.continue)
-		map("n", "<leader>dr", dap.repl.open)
-		map("n", "<leader>dl", dap.run_last)
+
+		-- step controls
+		map("n", "<leader>ds", dap.step_over) -- step over
+		map("n", "<leader>di", dap.step_into) -- step into
+		map("n", "<leader>do", dap.step_out) -- step out
 
 		map("n", "<leader>dq", function()
 			dap.terminate()
