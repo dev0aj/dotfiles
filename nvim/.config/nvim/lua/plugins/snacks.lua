@@ -46,8 +46,20 @@ return {
 			},
 		},
 		scratch = { enabled = true },
+		terminal = {
+			enabled = true,
+			win = { style = "float", border = "rounded", height = 0.8, width = 0.8 },
+		},
 	},
 	keys = {
+		-- terminal
+		{
+			"<c-p>",
+			function()
+				Snacks.terminal.toggle()
+			end,
+			mode = { "n", "t" },
+		},
 		{
 			"<leader>ff",
 			function()
