@@ -25,7 +25,7 @@ return {
 			local actions = require("diffview.actions")
 
 			vim.keymap.set("n", "<leader>hd", "<cmd>DiffviewOpen<cr>", { desc = "open diffview" })
-			vim.keymap.set("n", "<leader>hf", "<cmd>DiffviewFileHistory --follow %", { desc = "File history" })
+			vim.keymap.set("n", "<leader>hf", "<cmd>DiffviewFileHistory --follow %<cr>", { desc = "File history" })
 			vim.keymap.set("n", "<leader>hq", "<cmd>DiffviewClose<cr>", { desc = "close diffview" })
 
 			diffview.setup({
@@ -33,8 +33,7 @@ return {
 				view = {
 					default = {
 						disable_diagnostics = true,
-					},
-					merge_tool = {
+						-- Config for changed files, and staged files in diff views.
 						-- Available layouts:
 						--  'diff1_plain'
 						--    |'diff2_horizontal'
@@ -43,9 +42,12 @@ return {
 						--    |'diff3_vertical'
 						--    |'diff3_mixed'
 						--    |'diff4_mixed'
-						layout = "diff1_plain",
-						-- layout = "diff3_mixed",
-						-- layout = "diff4_mixed",
+						layout = "diff2_horizontal",
+						winbar_info = false, -- See |diffview-config-view.x.winbar_info|
+					},
+					merge_tool = {
+						-- layout = "diff1_plain",
+						layout = "diff3_horizontal",
 					},
 				},
 				file_panel = {
@@ -60,8 +62,8 @@ return {
 						{ "n", "<leader>e", actions.toggle_files, { desc = "Toggle file panel" } },
 
 						-- Hunk navigation
-						{ "n", "]c", actions.next_conflict, { desc = "Next Conflict" } },
-						{ "n", "[c", actions.prev_conflict, { desc = "Prev Conflict" } },
+						{ "n", "]g", actions.next_conflict, { desc = "Next Conflict" } },
+						{ "n", "[g", actions.prev_conflict, { desc = "Prev Conflict" } },
 
 						-- open commit log
 						{ "n", "L", actions.open_commit_log, { desc = "Focus file panel" } },
