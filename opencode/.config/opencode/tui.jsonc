@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/tui.json",
+
+  // UI theme used by the TUI.
+  // tokyonight matches Neovim users well since many already use this theme.
+  "theme": "tokyonight"
+
+}
