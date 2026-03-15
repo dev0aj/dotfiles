@@ -1,0 +1,146 @@
+{
+  "layer": "top",
+  "position": "top",
+
+  "modules-left": [
+   	"hyprland/workspaces"
+	// "custom/separator",
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+  "custom/music-info",
+	"custom/music-prev",
+  "custom/music-play",
+  "custom/music-next",
+	"custom/separator",
+	"custom/separator",
+    "tray",
+    // "temperature",
+    // "cpu",
+    // "memory",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+
+  "custom/separator": {
+	  "format": "  "
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "empty": ""
+    },
+    "persistent-workspaces": {
+      "*": [1,2,3,4,5]
+    }
+  },
+
+  "custom/music-prev": {
+  "format": "",
+  "tooltip": false,
+  "on-click": "playerctl previous"
+},
+
+"custom/music-play": {
+  "exec": "bash -c 'status=$(playerctl status 2>/dev/null); if [ \"$status\" = \"Playing\" ]; then echo \"\"; else echo \"\"; fi'",
+  "interval": 2,
+  "on-click": "playerctl play-pause",
+  "tooltip": false
+},
+
+"custom/music-next": {
+  "format": "",
+  "tooltip": false,
+  "on-click": "playerctl next"
+},
+"custom/music-info": {
+  "exec": "~/.config/waybar/scripts/music.sh",
+  "interval": 3,
+  "max-length": 40,
+  "text-align": "left",
+  "on-click": "playerctl play-pause"
+},
+
+  "clock": {
+    "timezone": "Asia/Kolkata",
+    "interval": 30,
+    "format": "{:%a, %d %b  |  %H : %M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "   {usage}%"
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": "󰘚  {used:0.1f}G"
+  },
+
+  "temperature": {
+    "thermal-zone": 0,
+    "format": " {temperatureC}°C"
+  },
+
+  "pulseaudio": {
+  "format": "{icon}  {volume}%",
+  "format-muted": "󰖁  muted",
+  "format-icons": {
+    "default": ["󰕿", "󰖀", "󰕾"]
+  },
+  "scroll-step": 5,
+  "on-click": "pavucontrol"
+},
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃝",
+      "󰃟",
+      "󰃠"
+    ],
+
+    "on-scroll-up": "~/.config/waybar/scripts/brightness.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness.sh down"
+  },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "hyprlock"
+  }
+}

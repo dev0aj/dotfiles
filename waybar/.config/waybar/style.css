@@ -1,0 +1,139 @@
+/* ============================= */
+/*     ELEGANT (MORE POP)        */
+/* ============================= */
+
+/* Global */
+* {
+  font-family: "CodeNewRoman";
+  font-size: 15px;
+  border: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: #e2e8ff;                   /* brighter base text */
+}
+
+
+/* ============================= */
+/*          WORKSPACES           */
+/* ============================= */
+#workspaces {
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+#workspaces label {
+	font-size: 12px;
+}
+
+#workspaces button {
+  padding: 2px 6px;
+  margin: 0 2px;
+  color: #e2e8ff;                   /* brighter base text */
+  border-radius: 6px;
+  box-shadow: none;
+  transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+  background: #282d3c;
+  color: #ff8fcb;   /* brighter pink */
+}
+
+#workspaces button.active {
+  color: #ff8fcb;   /* brighter pink */
+}
+
+
+/* ============================= */
+/*        MODULE SPACING         */
+/* ============================= */
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#backlight,
+#battery,
+#custom-power {
+  padding: 0 10px;
+}
+
+
+/* ============================= */
+/*        MORE VIBRANT COLORS     */
+/* ============================= */
+
+/* Slightly increased brightness for better pop */
+
+#clock {
+  color: #93c5ff;   /* brighter blue */
+  font-weight: 600;
+}
+
+#cpu {
+  color: #ff8f8f;
+}
+
+#memory {
+  color: #caa6ff;
+}
+
+#temperature {
+  color: #ffd98a;
+}
+
+#network {
+  color: #a6f0e6;   /* more visible teal */
+}
+
+#pulseaudio {
+  color: #ffb3e6;
+}
+
+#battery {
+  color: #8ef0a1;
+}
+
+#backlight {
+  color: #ffe08a;
+}
+
+#custom-power {
+  padding: 0 12px;
+  color: #ff8aa0;
+}
+
+
+/* ============================= */
+/*        MUSIC CONTROLS         */
+/* ============================= */
+
+#custom-music-prev,
+#custom-music-play,
+#custom-music-next {
+  color: #cbd5ff;   /* clearer base */
+  padding: 0 10px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+
+#custom-music-prev:hover,
+#custom-music-play:hover,
+#custom-music-next:hover {
+  background: #282d3c;
+  color: #ff8fcb;
+}
+
+#custom-music-info {
+  padding-right: 12px;
+  color: #e2e8ff;
+}
+
+#custom-music-info:hover {
+  color: #ff8fcb;
+}
