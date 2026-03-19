@@ -10,7 +10,7 @@ if ! command -v pacman &> /dev/null; then
 fi
 
 # List of packages to install
-PACKAGES=(stow kitty neovim tmux tealdeer pass)
+PACKAGES=(stow kitty neovim tmux tealdeer pass wl-clipboard)
 
 echo "Installing packages: ${PACKAGES[*]}"
 # Install packages without asking for confirmation
