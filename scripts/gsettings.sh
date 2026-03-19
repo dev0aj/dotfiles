@@ -12,6 +12,9 @@ fi
 
 echo "Applying GNOME settings..."
 
+# Enable dark mode
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
 # Swap Caps Lock and Escape
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
 
