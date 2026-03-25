@@ -12,11 +12,15 @@ return {
 		local dap_view = require("dap-view")
 		local dap_vt = require("nvim-dap-virtual-text")
 
-		dap_vt.setup()
+		-- Setup virtual text (inline values)
+		dap_vt.setup({
+			enabled = true,
+			commented = false,
+			highlight_changed_variables = true,
+		})
 
-		-- Mason DAP
+		-- Mason DAP setup
 		mason_dap.setup({
-
 			ensure_installed = { "go", "python" },
 			automatic_installation = true,
 			handlers = {
@@ -26,21 +30,19 @@ return {
 			},
 		})
 
-		-- Python Path
+		-- Python executable resolver
 		local function python_path()
 			if os.getenv("VIRTUAL_ENV") then
 				return os.getenv("VIRTUAL_ENV") .. "/bin/python"
 			end
-
 			local venv = vim.fn.getcwd() .. "/.venv/bin/python"
 			if vim.fn.executable(venv) == 1 then
 				return venv
 			end
-
 			return vim.fn.exepath("python3") or "/usr/bin/python3"
 		end
 
-		-- Python Configurations
+		-- Python configurations
 		dap.configurations.python = {
 			{
 				name = "Python: Current File",
@@ -49,7 +51,6 @@ return {
 				program = "${file}",
 				pythonPath = python_path,
 			},
-
 			{
 				name = "Python: Module",
 				type = "python",
@@ -61,6 +62,7 @@ return {
 			},
 		}
 
+		-- Go configurations
 		dap.configurations.go = {
 			{
 				name = "Go: Debug File",
@@ -68,14 +70,12 @@ return {
 				request = "launch",
 				program = "${file}",
 			},
-
 			{
 				name = "Go: Debug Package",
 				type = "go",
 				request = "launch",
 				program = "${fileDirname}",
 			},
-
 			{
 				name = "Go: Debug Test",
 				type = "go",
@@ -85,9 +85,10 @@ return {
 			},
 		}
 
-		-- dap-view
+		-- dap-view setup
 		dap_view.setup()
 
+		-- DAP views panel keymaps (safe, namespaced)
 		local dap_views = {
 			W = "watches",
 			S = "scopes",
@@ -111,7 +112,7 @@ return {
 			end
 		end
 
-		-- dap listeners
+		-- Auto open/close dap-view panels
 		local function open_ui()
 			dap_view.open()
 			set_dap_keymaps()
@@ -122,35 +123,47 @@ return {
 			remove_dap_keymaps()
 		end
 
-		dap.listeners.before.attach.dapui_config = open_ui
-		dap.listeners.before.launch.dapui_config = open_ui
-		dap.listeners.before.event_terminated.dapui_config = close_ui
-		dap.listeners.before.event_exited.dapui_config = close_ui
+		dap.listeners.before.attach["dapui_config"] = open_ui
+		dap.listeners.before.launch["dapui_config"] = open_ui
+		dap.listeners.before.event_terminated["dapui_config"] = close_ui
+		dap.listeners.before.event_exited["dapui_config"] = close_ui
 
 		-- Signs
 		vim.fn.sign_define("DapBreakpoint", {
-			text = "🐞",
+			text = '🛑',
+			-- text = "🐞",
 			texthl = "DiagnosticSignError",
 		})
+		vim.fn.sign_define("DapStopped", {
+			text = "▶",
+			texthl = "DiagnosticSignWarn",
+		})
 
-		-- Keymaps
+		-- IDE-style DAP keymaps (<leader>D namespace)
 		local map = vim.keymap.set
 
-		map("n", "<leader>dp", function()
-			vim.cmd("DapNew")
-		end)
-		map("n", "<leader>dt", dap.toggle_breakpoint)
-		map("n", "<leader>dn", dap.continue)
+		-- Session controls
+		map("n", "<leader>gc", dap.continue, { desc = "DAP: Continue / Start" })
+		map("n", "<leader>gq", dap.terminate, { desc = "DAP: Quit" })
+		map("n", "<leader>gs", function() vim.cmd("DapNew") end, { desc = "DAP: New session" })
 
-		-- step controls
-		map("n", "<leader>ds", dap.step_over) -- step over
-		map("n", "<leader>di", dap.step_into) -- step into
-		map("n", "<leader>do", dap.step_out) -- step out
+		-- Breakpoints
+		map("n", "<leader>gb", dap.toggle_breakpoint, { desc = "DAP: Toggle breakpoint" })
+		map("n", "<leader>gB", dap.clear_breakpoints, { desc = "DAP: Toggle breakpoint" })
+		map(
+			"n",
+			"<leader>gl",
+			function ()
+				dap.list_breakpoints()
+				vim.cmd("copen")
+			end,
+			{ desc = "DAP: List breakpoints" }
+		)
 
-		map("n", "<leader>dq", function()
-			dap.terminate()
-		end)
+		-- Stepping
+		map("n", "<leader>gn", dap.step_over, { desc = "DAP: Step over" })
+		map("n", "<leader>gi", dap.step_into, { desc = "DAP: Step into" })
+		map("n", "<leader>go", dap.step_out, { desc = "DAP: Step out" })
 
-		map("n", "<leader>db", dap.list_breakpoints)
 	end,
 }
