@@ -79,6 +79,13 @@ return {
 			desc = "Find All Files",
 		},
 		{
+			"<leader>fw",
+			function()
+				Snacks.picker.grep_word({live = true})
+			end,
+			desc = "Grep word",
+		},
+		{
 			"<leader>fg",
 			function()
 				Snacks.picker.grep()
