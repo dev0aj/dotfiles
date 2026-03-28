@@ -1,6 +1,6 @@
 -- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -11,12 +11,12 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 -- toggle b/w relative and absolute line numbers
-vim.keymap.set("n", "<leader>ll", function()
-  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+vim.keymap.set("n", "<leader>rl", function()
+	vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = "Toggle relative number" })
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
@@ -35,7 +35,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -56,7 +56,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-guide-options`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Show which line your cursor is on
 vim.o.cursorline = true
@@ -85,3 +85,5 @@ vim.opt.wrap = true -- Disable line wrap
 
 -- session
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
+vim.opt.termguicolors = true

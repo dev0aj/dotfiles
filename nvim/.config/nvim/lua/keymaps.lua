@@ -180,4 +180,7 @@ vim.keymap.set("n", "<leader>qq", function()
   if vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 then
     vim.cmd("lclose")
   end
-end, { desc = "Close all extra windows (quickfix, loclist, terminal, floats)" })
+end, { desc = "Close all extra windaws (quickfix, loclist, terminal, floats)" })
+
+-- spell
+vim.keymap.set("n", "<leader>sp", "<cmd>set spell!<cr>", { desc = "Toggle spell check" })

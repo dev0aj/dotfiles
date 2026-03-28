@@ -41,3 +41,13 @@ require("lazy").setup("plugins", {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' } -- Set your preferred language (e.g., 'en_gb', 'de')
+vim.opt.spelloptions:append('camel') -- This option enables spell-checking of words within CamelCase identifiers.
+-- Apply to all buffers on load
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function()
+    vim.opt_local.syntax = "on"
+  end,
+})
