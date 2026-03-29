@@ -45,7 +45,6 @@ return {
 				},
 			},
 		},
-		scratch = { enabled = true },
 		terminal = {
 			enabled = true,
 			win = { style = "float", border = "rounded", height = 0.8, width = 0.8 },
@@ -79,21 +78,36 @@ return {
 			desc = "Find All Files",
 		},
 		{
-			"<leader>fw",
+			"<leader>fg",
 			function()
-				Snacks.picker.grep_word({live = true})
+				Snacks.picker.git_status()
 			end,
-			desc = "Grep word",
+			desc = "Git Status",
 		},
 		{
-			"<leader>fg",
+			"<leader>fs",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "LSP Symbols",
+		},
+		-- search
+		{
+			"<leader>sg",
 			function()
 				Snacks.picker.grep()
 			end,
 			desc = "Live Grep",
 		},
 		{
-			"<leader>fb",
+			"<leader>sw",
+			function()
+				Snacks.picker.grep_word({ live = true })
+			end,
+			desc = "Grep word",
+		},
+		{
+			"<leader>sb",
 			function()
 				Snacks.picker.grep_buffers()
 			end,
@@ -228,28 +242,6 @@ return {
 				Snacks.picker.lsp_outgoing_calls()
 			end,
 			desc = "C[a]lls Outgoing",
-		},
-		-- scratch
-		{
-			"<leader>so",
-			function()
-				Snacks.scratch()
-			end,
-			desc = "Toggle Scratch Buffer",
-		},
-		{
-			"<leader>sf",
-			function()
-				Snacks.scratch.select()
-			end,
-			desc = "Select Scratch Buffer",
-		},
-		{
-			"<leader>sm",
-			function()
-				Snacks.scratch.open({ ft = "markdown" })
-			end,
-			desc = "Open Scratch Buffer with Markdown",
 		},
 	},
 	init = function()
