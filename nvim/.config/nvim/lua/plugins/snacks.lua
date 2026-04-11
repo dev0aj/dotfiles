@@ -31,7 +31,7 @@ return {
 					finder = "buffers",
 					format = "buffer",
 					layout = {
-						preview = "main",
+						preview = false,
 						preset = "ivy",
 					},
 					nofile = false,
