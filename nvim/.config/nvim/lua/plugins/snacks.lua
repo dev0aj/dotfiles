@@ -30,7 +30,10 @@ return {
 				buffers = {
 					finder = "buffers",
 					format = "buffer",
-					layout = "ivy",
+					layout = {
+						preview = "main",
+						preset = "ivy",
+					},
 					nofile = false,
 					current = true,
 					sort_lastused = true,
