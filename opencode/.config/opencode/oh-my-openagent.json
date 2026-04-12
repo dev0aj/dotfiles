@@ -6,7 +6,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -18,7 +18,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -30,7 +30,7 @@
       "variant": "high",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -53,7 +53,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -65,7 +65,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -77,7 +77,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -89,7 +89,7 @@
       "variant": "high",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -100,10 +100,10 @@
       "model": "openai/gpt-5.1",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
-          "model": "opencode/minimax-m2.5-free"
+          "model": "openai/minimax-m2.5-free"
         }
       ]
     },
@@ -111,7 +111,7 @@
       "model": "openai/gpt-5.4-mini",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -125,10 +125,10 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
-          "model": "opencode/minimax-m2.5-free"
+          "model": "openai/minimax-m2.5-free"
         }
       ]
     },
@@ -137,7 +137,7 @@
       "variant": "high",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5"
@@ -149,7 +149,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5"
@@ -161,7 +161,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-mini"
+          "model": "openai/gpt-5-mini"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -172,7 +172,7 @@
       "model": "openai/gpt-5.4-mini",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -183,7 +183,7 @@
       "model": "openai/gpt-5.4-mini",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -195,7 +195,7 @@
       "variant": "medium",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
@@ -206,7 +206,7 @@
       "model": "openai/gpt-5.4-mini",
       "fallback_models": [
         {
-          "model": "opencode/gpt-5-nano"
+          "model": "openai/gpt-5-nano"
         },
         {
           "model": "opencode/minimax-m2.5-free"
