@@ -37,9 +37,6 @@ vim.o.smartcase = true
 -- Keep signcolumn on by default
 vim.o.signcolumn = "yes"
 
--- Decrease update time
-vim.o.updatetime = 250
-
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 1000
 
@@ -87,3 +84,13 @@ vim.opt.wrap = true -- Disable line wrap
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 vim.opt.termguicolors = true
+
+vim.opt.autoread = true
+vim.opt.updatetime = 500
+
+vim.api.nvim_create_autocmd(
+  { "FocusGained", "BufEnter", "CursorHold" },
+  {
+    command = "checktime",
+  }
+)

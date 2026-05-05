@@ -192,7 +192,7 @@ Prompts that should trigger this skill:
 
 Near-miss prompts that should not trigger:
 - "Set up a JavaScript project with pnpm and ESLint."
-- "Create a complex Django microservice template with Docker and CI pipelines."  
+- "Create a complex Django microservice template with Docker and CI pipelines."
 
 Edge-case prompt:
 - "This directory has a mix of Python and non-Python code. Can you standardize tooling across everything?" (The skill should focus only on the Python part and, if needed, ask the user whether non-Python setup is out of scope.)
