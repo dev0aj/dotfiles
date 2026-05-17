@@ -1,0 +1,162 @@
+// keymap.json, generated at Wed May 16 2026
+[
+    // panels toggle
+    {
+        "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+        "bindings": {
+            "space e": "pane::RevealInProjectPanel",
+            "space h v": "git_panel::Toggle",
+            "space a g": "agent::Toggle",
+        },
+    },
+    {
+        "context": "ProjectPanel && not_editing",
+        "bindings": {
+            "a": "project_panel::NewFile",
+            "A": "project_panel::NewDirectory",
+            "r": "project_panel::Rename",
+            "d": "project_panel::Delete",
+            "x": "project_panel::Cut",
+            "c": "project_panel::Copy",
+            "p": "project_panel::Paste",
+            "y": "workspace::CopyRelativePath",
+            "Y": "workspace::CopyPath",
+            "H": "project_panel::ToggleHideHidden",
+            // Navigate between panel
+            "space e": "project_panel::Toggle",
+        },
+    },
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "space h v": "git_panel::Toggle",
+        },
+    },
+    {
+        "context": "AgentPanel",
+        "bindings": {
+            "space a g": "agent::Toggle",
+        },
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
+        },
+    },
+
+    {
+        "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+        "bindings": {
+            // finder
+            "space space": "tab_switcher::Toggle",
+            "space f p": "projects::OpenRecent",
+            "space f f": "file_finder::Toggle",
+
+            // search
+            "space s g": "pane::DeploySearch",
+
+            // +LSP
+            "space i": "editor::Format",
+            "space c a": "editor::ToggleCodeActions",
+            "space .": "editor::ToggleCodeActions",
+            "space c r": "editor::Rename",
+            "g d": "editor::GoToDefinition",
+            "g D": "editor::GoToDeclaration",
+            "g i": "editor::GoToImplementation",
+            "g I": "editor::GoToImplementationSplit",
+            "g t": "editor::GoToTypeDefinition",
+            "g T": "editor::GoToTypeDefinitionSplit",
+            "g r": "editor::FindAllReferences",
+
+            // buffers
+            "space q": "pane::CloseActiveItem",
+            "space b d": "pane::CloseActiveItem",
+            "space b o": "pane::CloseOtherItems",
+            "shift-h": "pane::ActivatePreviousItem",
+            "shift-l": "pane::ActivateNextItem",
+
+            // Git
+            "space h q": "git_panel::Close",
+            "space h d": "git::Diff",
+            "space h a": "git::StageAndNext",
+            "space h A": "git::StageFile",
+            "space h u": "git::UnstageAndNext",
+            "space h U": "git::UnstageFile",
+            "space h r": "git::Restore",
+            "space h R": "git::RestoreFile",
+            "space h c": "git::Commit",
+
+            "space o": "outline::Toggle",
+
+            // bracketed movement
+            "] r": "editor::GoToNextReference",
+            "[ r": "editor::GoToPreviousReference",
+            "] d": "editor::GoToDiagnostic",
+            "[ d": "editor::GoToPreviousDiagnostic",
+            "] g": "editor::GoToHunk",
+            "[ g": "editor::GoToPreviousHunk",
+            "] f": "vim::NextMethodStart",
+            "[ f": "vim::PreviousMethodStart",
+            "] b": "pane::ActivateNextItem",
+            "[ b": "pane::ActivatePreviousItem",
+        },
+    },
+
+    // autocomplete
+    {
+        "context": "Editor && menu",
+        "bindings": {
+            "ctrl-y": "editor::ConfirmCompletion",
+        },
+    },
+
+    // Empty pane, set of keybindings that are available when there is no active editor
+    {
+        "context": "EmptyPane || SharedScreen",
+        "bindings": {
+            // Open file finder
+            "space space": "tab_switcher::Toggle",
+            "space f f": "file_finder::Toggle",
+            // Open recent project
+            "space f p": "projects::OpenRecent",
+        },
+    },
+    // Comment code
+    {
+        "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+        "bindings": {
+            // visual, visual line & visual block modes
+            "g c": "editor::ToggleComments",
+        },
+    },
+    // Toggle terminal
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-p": "terminal_panel::Toggle",
+        },
+    },
+    // Subword motion is not working really nice with `ciw`, disable for now
+    // {
+    //   "context": "VimControl && !menu",
+    //   "bindings": {
+    //     "w": "vim::NextSubwordStart",
+    //     "b": "vim::PreviousSubwordStart",
+    //     "e": "vim::NextSubwordEnd",
+    //     "g e": "vim::PreviousSubwordEnd"
+    //   }
+    // }
+]

@@ -1,0 +1,16 @@
+{
+  "Python docstring": {
+    "prefix": "doc",
+    "scope": "source.python",
+    "body": [
+      "\"\"\"${1:Summary}.",
+      "",
+      "${2:Args:",
+      "    ${3:param_name} (${4:type}): ${5:Description}.,}",
+      "",
+      "${6:Returns:",
+      "    ${7:type}: ${8:Description}.}",
+      "\"\"\""
+    ]
+  }
+}
