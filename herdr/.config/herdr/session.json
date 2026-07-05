@@ -1,0 +1,150 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "w8",
+      "custom_name": null,
+      "identity_cwd": "/home/aj/dotfiles",
+      "public_pane_numbers": {
+        "13": 16,
+        "1": 1,
+        "15": 18
+      },
+      "next_public_pane_number": 20,
+      "public_tab_numbers": [
+        1,
+        4,
+        6
+      ],
+      "next_public_tab_number": 7,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 1
+          },
+          "panes": {
+            "1": {
+              "cwd": "/home/aj/dotfiles"
+            }
+          },
+          "zoomed": false,
+          "focused": 1,
+          "root_pane": 1
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 13
+          },
+          "panes": {
+            "13": {
+              "cwd": "/home/aj/dotfiles"
+            }
+          },
+          "zoomed": false,
+          "focused": 13,
+          "root_pane": 13
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 15
+          },
+          "panes": {
+            "15": {
+              "cwd": "/home/aj/dotfiles"
+            }
+          },
+          "zoomed": false,
+          "focused": 15,
+          "root_pane": 15
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w9",
+      "custom_name": "Test Project",
+      "identity_cwd": "/home/aj/projects/test",
+      "public_pane_numbers": {
+        "19": 3,
+        "17": 1,
+        "18": 2,
+        "20": 4
+      },
+      "next_public_pane_number": 9,
+      "public_tab_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "next_public_tab_number": 5,
+      "tabs": [
+        {
+          "custom_name": "server",
+          "layout": {
+            "Pane": 17
+          },
+          "panes": {
+            "17": {
+              "cwd": "/home/aj/projects/test"
+            }
+          },
+          "zoomed": false,
+          "focused": 17,
+          "root_pane": 17
+        },
+        {
+          "custom_name": "code",
+          "layout": {
+            "Pane": 18
+          },
+          "panes": {
+            "18": {
+              "cwd": "/home/aj/projects/test"
+            }
+          },
+          "zoomed": false,
+          "focused": 18,
+          "root_pane": 18
+        },
+        {
+          "custom_name": "terminal",
+          "layout": {
+            "Pane": 19
+          },
+          "panes": {
+            "19": {
+              "cwd": "/home/aj/projects/test"
+            }
+          },
+          "zoomed": false,
+          "focused": 19,
+          "root_pane": 19
+        },
+        {
+          "custom_name": "lazygit",
+          "layout": {
+            "Pane": 20
+          },
+          "panes": {
+            "20": {
+              "cwd": "/home/aj/projects/test"
+            }
+          },
+          "zoomed": false,
+          "focused": 20,
+          "root_pane": 20
+        }
+      ],
+      "active_tab": 0
+    }
+  ],
+  "active": 0,
+  "selected": 0,
+  "sidebar_width": 26,
+  "sidebar_section_split": 0.5,
+  "collapsed_space_keys": []
+}

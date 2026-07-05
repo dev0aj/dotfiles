@@ -1,0 +1,19 @@
+name = "Test Project"
+description = "test project for herdr"
+working_dir = "~/projects/test"   # ~ and $VARS expand
+
+[[tabs]]
+name = "server"
+command = "source .venv/bin/activate"
+
+[[tabs]]
+name = "code"
+command = "source .venv/bin/activate"
+
+[[tabs]]
+name = "terminal"   # no command — just an empty shell
+command = "source .venv/bin/activate"
+
+[[tabs]]
+name = "lazygit"
+command = "lazygit"
